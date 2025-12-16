@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple Timer</title>
+    <meta name="description" content="A simple timer app with start/pause/reset." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card" aria-labelledby="title">
+        <header class="header">
+          <div>
+            <h1 id="title">Simple Timer</h1>
+            <p class="subtitle">Start, pause, and reset a countdown timer.</p>
+          </div>
+          <div class="kbd-hints" aria-label="Keyboard shortcuts">
+            <span class="kbd">Space</span>
+            <span class="hint">start/pause</span>
+            <span class="kbd">R</span>
+            <span class="hint">reset</span>
+          </div>
+        </header>
+
+        <div class="display" aria-live="polite" aria-atomic="true">
+          <div class="time" id="time">00:00</div>
+          <div class="status" id="status">Ready</div>
+        </div>
+
+        <div class="progress" role="progressbar" aria-label="Progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <form class="controls" id="controls" autocomplete="off">
+          <div class="inputs">
+            <label class="field">
+              <span class="label">Minutes</span>
+              <input id="minutes" type="number" inputmode="numeric" min="0" max="999" value="5" />
+            </label>
+            <label class="field">
+              <span class="label">Seconds</span>
+              <input id="seconds" type="number" inputmode="numeric" min="0" max="59" value="0" />
+            </label>
+          </div>
+
+          <div class="buttons">
+            <button type="button" class="btn primary" id="startPause">Start</button>
+            <button type="button" class="btn" id="reset">Reset</button>
+          </div>
+
+          <div class="presets" aria-label="Presets">
+            <button type="button" class="chip" data-min="1" data-sec="0">1:00</button>
+            <button type="button" class="chip" data-min="5" data-sec="0">5:00</button>
+            <button type="button" class="chip" data-min="10" data-sec="0">10:00</button>
+            <button type="button" class="chip" data-min="25" data-sec="0">25:00</button>
+          </div>
+        </form>
+      </section>
+      <footer class="footer">
+        <span>Tip: you can edit minutes/seconds when not running.</span>
+      </footer>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
